@@ -1,0 +1,1 @@
+npx next build; npx next export; scp -r out/* root@65.21.149.109:/root/business/web
