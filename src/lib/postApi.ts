@@ -14,7 +14,11 @@ export interface Post {
 const postsDirectory = join(process.cwd(), "_posts");
 
 export function getPostSlugs(): string[] {
-  return fs.readdirSync(postsDirectory);
+  try {
+    return fs.readdirSync(postsDirectory);
+  } catch (e) {
+    return [];
+  }
 }
 
 export function getPostBySlug(slug: string): Post {
