@@ -26,7 +26,7 @@ const Index: NextPage = () => {
         <div className="flex flex-col space-y-3 mt-20">
           <PillButton href="/projects">Projects</PillButton>
           {/* <GhostButton href="/story">My story</GhostButton> */}
-          {/* <GhostButton href="/blog">Blog</GhostButton> */}
+          <GhostButton href="/posts">Blog</GhostButton>
         </div>
       </PageContent>
     </div>
