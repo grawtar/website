@@ -86,7 +86,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
             </NavItem>
           </div>
           <div className="flex space-x-4 items-center">
-            <NavItem small href="mailto:uros@urosstok.com">
+            <NavItem small href="mailto:contact@urosstok.com">
               <svg width="32" height="32" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_237_45)">
                   <path
@@ -157,7 +157,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
             <NavItem href="/posts">Blog</NavItem>
           </div>
           <div className="flex space-x-4 items-center">
-            <NavItem href="mailto:uros@urosstok.com">
+            <NavItem href="mailto:contact@urosstok.com">
               <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_237_45)">
                   <path
