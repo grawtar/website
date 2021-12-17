@@ -5,6 +5,7 @@ import Head from "next/head";
 import markdownToHtml from "../../src/lib/markdownToHtml";
 import Header from "../../src/components/Header";
 import { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 
 const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
@@ -29,9 +30,9 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{post.title}</h1>
               <h5 className="my-4 text-sm">
                 by{" "}
-                <a href="/" className="text-primary">
-                  {post.author}
-                </a>{" "}
+                <Link href="/">
+                  <span className="text-primary">{post.author}</span>
+                </Link>{" "}
                 {months[new Date(post.date).getMonth()]} {new Date(post.date).getDate()},{" "}
                 {new Date(post.date).getFullYear()}
               </h5>
