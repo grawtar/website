@@ -23,24 +23,20 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header overrideTitle="Blog" overrideTitleHref="/posts" />
-      <div className="flex flex-col items-center mx-12">
-        <div>
-          <article className="prose lg:prose-lg">
-            <span className="not-prose">
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{post.title}</h1>
-              <h5 className="my-4 text-sm">
-                by{" "}
-                <Link href="/">
-                  <span className="text-primary">{post.author}</span>
-                </Link>{" "}
-                {months[new Date(post.date).getMonth()]} {new Date(post.date).getDate()},{" "}
-                {new Date(post.date).getFullYear()}
-              </h5>
-            </span>
-            <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
-          </article>
-        </div>
-      </div>
+      <article className="prose lg:prose-lg mx-auto">
+        <span className="not-prose">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{post.title}</h1>
+          <h5 className="my-4 text-sm">
+            by{" "}
+            <Link href="/">
+              <span className="text-primary">{post.author}</span>
+            </Link>{" "}
+            {months[new Date(post.date).getMonth()]} {new Date(post.date).getDate()},{" "}
+            {new Date(post.date).getFullYear()}
+          </h5>
+        </span>
+        <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+      </article>
     </div>
   );
 };
