@@ -13,7 +13,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
-        <meta name="description" content="Uroš Štok | Software Partner/Consultant experienced in web & iot"></meta>
+        <meta name="description" content="Uroš Štok | Building Cloud and SaaS"></meta>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@urosstok" />
+        <meta name="twitter:title" content="Uros Stok's Website" />
+        <meta name="twitter:description" content="Uroš Štok | Building Cloud and SaaS" />
         <script async defer data-domain="urosstok.com" src="https://lytics.urosstok.com/js/plausible.js"></script>
       </Head>
       <Component {...pageProps} />
