@@ -9,18 +9,37 @@ While Express wasn't built with Typescript, there are type definitions available
 
 I've looked around for ways of properly doing `Request` and `Response` types, and haven't found anything that works without breaking something else or being complicated. So here's how I usually implement typesafety into express routes.
 
-## Request.body type
 
 Let's say we had an endpoint for adding a new user:
 ```ts
-import {Request, Response} from "express";
+import express from "express";
+
+const app = express();
+
+app.post("/user", (req, res) => {
+    req.body.name; // autocomplete doesn't work
+});
+
+app.listen(3000);
+```
+
+This is pretty standard javascript, besides using ESM imports, there's no reason we need typescript for this. So let's add some types:
+
+```ts
+import express, {Request, Response} from "express";
 ...
 app.post("/user", (req: Request, res: Response) => {
     req.body.name; // autocomplete doesn't work
 });
 ```
 
-What if this endpoint needs some input body data? We can pass an interface to the `Request` type parameter list so that Typescript knows what variables are available in `req.body`. It would look something like this:
+Note that this is what happens normally even if we don't specify the types, typescript infers the `Request` and `Response` type from the function automatically. So we didn't really do much here.
+
+## Request.body type
+
+What if this endpoint needs some input body data? Currently when we type `req.body` autocomplete doesn't offer anything special. Let's change that.
+
+We can pass an interface to the `Request` type parameter list so that Typescript knows what variables are available in `req.body`. It would look something like this:
 
 ```ts
 type UserRequestBody = { name: string };
@@ -48,6 +67,7 @@ With our cleaner definition we can simply use:
 
 ```ts
 type RequestBody<T> = Request<{}, {}, T>;
+
 type UserRequestBody = { name: string };
 app.post("/user", (req: RequestBody<UserRequestBody>, res: Response) => {
     req.body.name; // autocomplete works
@@ -74,6 +94,24 @@ To cover everything, we need to be able to specify multiple types, for example `
 
 ```ts
 type RequestBodyParams<TBody, TParams> = Request<TParams, {}, TBody>
+```
+
+## Typed example
+
+Here's the full example from the start, now with typed routes:
+
+```ts
+import express, {Request, Resposne} from "express";
+
+const app = express();
+
+type RequestBody<T> = Request<{}, {}, T>;
+type UserRequestBody = { name: string };
+app.post("/user", (req: RequestBody<UserRequestBody>, res: Response) => {
+    req.body.name; // autocomplete works
+});
+
+app.listen(3000);
 ```
 
 ## Closing notes
