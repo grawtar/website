@@ -28,26 +28,23 @@ const Index: NextPage = () => {
       <PageContent>
         <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">Hey!</h2>
         <p className="my-8">
-          I'm a software developer with 4+ years of experience in the software world. The bulk of my projects consist of
-          web and desktop apps (as well as the occasional mobile app).
-        </p>
-        <p className="my-8">
-          As I like all things tech, I often dabble in all the new frameworks and post the discoveries on my{" "}
+          I'm Uroš. A full stack developer mainly focused on SaaS applications. I keep a{" "}
           <Link href="/posts">
             <a className="text-primary">blog</a>
+          </Link>{" "}
+          which you may find useful, especially if you're looking for NodeJS related content.
+        </p>
+        <p className="my-8">
+          I'm not much of a sysadmin guy, but I like running my own servers, I often use Docker as I find it really easy
+          to setup a lot of projects with it. This website however is actually hosted on Vercel one of my few Jamstack
+          projects, you can checkout out the{" "}
+          <Link href="https://github.com/grawtar/website">
+            <a className="text-primary">repo</a>
           </Link>
           .
         </p>
-        {/* <div className="flex flex-col space-y-3 mt-12">
-          <PillButton href="/posts">Blog</PillButton>
-        </div> */}
-        {/* <div className="flex flex-col space-y-3 mt-20">
-          <PillButton href="/projects">Projects</PillButton>
-          <GhostButton href="/posts">Blog</GhostButton>
-        </div> */}
         <div className="py-8" id="projects"></div>
         <Title>Projects</Title>
-        <SubTitle>Building Apps since 2016</SubTitle>
         <div className="divide-y">
           <ProjectFrame>
             <ProjectTitle href="https://pakkly.com">Pakkly</ProjectTitle>
