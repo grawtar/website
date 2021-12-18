@@ -36,8 +36,8 @@ const Index: NextPage = () => {
         </p>
         <p className="my-8">
           I'm not much of a sysadmin guy, but I like running my own servers, I often use Docker as I find it really easy
-          to setup a lot of projects with it. This website however is actually hosted on Vercel one of my few Jamstack
-          projects, you can checkout out the{" "}
+          to setup a lot of projects with it. This website however is actually hosted on Vercel which makes it one of my
+          few Jamstack projects, you can checkout out the{" "}
           <Link href="https://github.com/grawtar/website">
             <a className="text-primary">repo</a>
           </Link>
