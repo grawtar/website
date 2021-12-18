@@ -23,7 +23,7 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header overrideTitle="Blog" overrideTitleHref="/posts" />
-      <article className="prose lg:prose-lg mx-auto">
+      <article className="prose lg:prose-lg mx-auto px-3 sm:px-0 pb-4">
         <span className="not-prose">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">{post.title}</h1>
           <h5 className="my-4 text-sm">
