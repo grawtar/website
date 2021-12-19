@@ -29,8 +29,7 @@ const Index: NextPage = () => {
         <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">Hey!</h2>
         <h3 className="text-xl md:text-2xl text-center mt-0 mb-12 font-light">
           <span className="whitespace-nowrap">Full-Stack Developer</span> |{" "}
-          <span className="whitespace-nowrap">SaaS Expert</span> |{" "}
-          <span className="whitespace-nowrap">NodeJS Developer</span>
+          <span className="whitespace-nowrap">SaaS</span> | <span className="whitespace-nowrap">NodeJS Developer</span>
         </h3>
         <p className="my-8">
           I'm Uroš. A full-stack NodeJS developer. I keep a{" "}
