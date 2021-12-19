@@ -28,7 +28,7 @@ const Index: NextPage = () => {
       <PageContent>
         <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">Hey!</h2>
         <p className="my-8">
-          I'm Uroš. A full-stack developer nodeJS developer. I keep a{" "}
+          I'm Uroš. A full-stack NodeJS developer. I keep a{" "}
           <Link href="/posts">
             <a className="text-primary">blog</a>
           </Link>{" "}
