@@ -28,16 +28,15 @@ const Index: NextPage = () => {
       <PageContent>
         <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">Hey!</h2>
         <p className="my-8">
-          I'm Uroš. A full stack developer mainly focused on SaaS applications. I keep a{" "}
+          I'm Uroš. A full-stack developer nodeJS developer. I keep a{" "}
           <Link href="/posts">
             <a className="text-primary">blog</a>
           </Link>{" "}
-          which you may find useful, especially if you're looking for NodeJS related content.
+          where I post NodeJS related content.
         </p>
         <p className="my-8">
-          I'm not much of a sysadmin guy, but I like running my own servers, I often use Docker as I find it really easy
-          to setup a lot of projects with it. This website however is actually hosted on Vercel which makes it one of my
-          few Jamstack projects, you can checkout out the{" "}
+          I often use Docker as I find it really easy to setup a lot of projects with it. This website however is
+          actually hosted on Vercel which makes it one of my few Jamstack projects, you can checkout out the{" "}
           <Link href="https://github.com/grawtar/website">
             <a className="text-primary">repo</a>
           </Link>
