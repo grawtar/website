@@ -27,6 +27,11 @@ const Index: NextPage = () => {
       <Header />
       <PageContent>
         <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">Hey!</h2>
+        <h3 className="text-xl md:text-2xl text-center mt-0 mb-12 font-light">
+          <span className="whitespace-nowrap">Full-Stack Developer</span> |{" "}
+          <span className="whitespace-nowrap">SaaS Expert</span> |{" "}
+          <span className="whitespace-nowrap">NodeJS Developer</span>
+        </h3>
         <p className="my-8">
           I'm Uroš. A full-stack NodeJS developer. I keep a{" "}
           <Link href="/posts">
@@ -35,8 +40,13 @@ const Index: NextPage = () => {
           where I post NodeJS related content.
         </p>
         <p className="my-8">
-          I'm also an avid Docker user as I find it really easy to setup a lot of projects with it. This website however
-          is actually hosted on Vercel which makes it one of my few Jamstack projects, you can checkout out the{" "}
+          Most of my expertise lies in building full SaaS applications with payment processing and the like. The number
+          one thing that contributed to this was definitely building my own SaaS from scratch (lots of lessons learned
+          😀).
+        </p>
+        <p className="my-8">
+          I'm also a Docker fan as I find it really easy to setup a lot of projects with it. This is actually hosted on
+          Vercel, you can check out the{" "}
           <Link href="https://github.com/grawtar/website">
             <a className="text-primary">repo</a>
           </Link>
