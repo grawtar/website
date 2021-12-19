@@ -4,8 +4,9 @@ import gfm from "remark-gfm";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
+import readingTime from "reading-time";
 
-export default async function markdownToHtml(markdown) {
+export async function markdownToHtml(markdown) {
   const result = await unified()
     .use(remarkParse)
     .use(gfm)
@@ -14,4 +15,8 @@ export default async function markdownToHtml(markdown) {
     .use(html)
     .process(markdown);
   return result.toString().replace(/@@baseUrl@@/g, process.env.baseUrl || "");
+}
+
+export async function markdownReadTime(markdown) {
+  return readingTime(markdown).minutes;
 }

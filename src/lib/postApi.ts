@@ -9,6 +9,7 @@ export interface Post {
   date: string;
   title: string;
   subTitle: string;
+  readTimeMinutes: number;
 }
 
 const postsDirectory = join(process.cwd(), "_posts");

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import { getPostBySlug, getAllPosts, Post } from "../../src/lib/postApi";
 import Head from "next/head";
-import markdownToHtml from "../../src/lib/markdownToHtml";
+import { markdownToHtml, markdownReadTime } from "../../src/lib/markdownToHtml";
 import Header from "../../src/components/Header";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
@@ -34,7 +34,7 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
               <span className="text-primary">{post.author}</span>
             </Link>{" "}
             {months[new Date(post.date).getMonth()]} {new Date(post.date).getDate()},{" "}
-            {new Date(post.date).getFullYear()}
+            {new Date(post.date).getFullYear()}, {Math.floor(post.readTimeMinutes)} min read
           </h5>
         </span>
         <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
@@ -49,6 +49,7 @@ export const getStaticProps: GetStaticProps<PageStaticProps> = async ({ params }
 
   let post = getPostBySlug(params.slug as string);
   post.content = await markdownToHtml(post.content ?? "");
+  post.readTimeMinutes = await markdownReadTime(post.content ?? "");
 
   return {
     props: {
