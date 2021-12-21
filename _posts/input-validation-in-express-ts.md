@@ -197,6 +197,6 @@ This whole example is available as a [repo](https://github.com/grawtar/express-v
 
 ## Closing notes
 
-Hope you found this useful! Personally, it's my favourite way to add input validation if you're using typescript. It's so nice and clean!
+I hope you found this useful! Personally, it's my favourite way to add input validation if you're using typescript. It's so nice and clean!
 
-Another cool alternative that allows for more powerful defintions (at the cost of losing clean interfaces) is [typebox](https://github.com/sinclairzx81/typebox).
+Another cool alternative that allows for more powerful definitions (at the cost of losing clean interfaces) is [typebox](https://github.com/sinclairzx81/typebox).
