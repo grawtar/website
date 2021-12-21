@@ -5,7 +5,7 @@ author: "Uroš Štok"
 date: "2021-12-22"
 ---
 
->Since this is a bit long of a post with multiple files I've provided a sample [repo](https://github.com/grawtar/express-validation-with-ts) so you can see the final code in action, encase the post gets a bit too wordy.
+>Since this is a bit of a long post with multiple files I've provided a sample [repo](https://github.com/grawtar/express-validation-with-ts) so you can see the final code in action, in case the post gets a bit too wordy.
 
 Most issues with Express crop up with badly (not) checked inputs to endpoints. The easiest way to show this is with an example:
 
