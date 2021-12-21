@@ -5,7 +5,7 @@ author: "Uroš Štok"
 date: "2021-12-22"
 ---
 
->Since this is a bit of a long post with multiple files I've provided a sample [repo](https://github.com/grawtar/express-validation-with-ts) so you can see the final code in action, in case the post gets a bit too wordy.
+Since this is a bit of a long post with multiple files I've provided a sample [repo](https://github.com/grawtar/express-validation-with-ts) so you can see the final code in action, in case the post gets a bit too hard to follow.
 
 Most issues with Express crop up with badly (not) checked inputs to endpoints. The easiest way to show this is with an example:
 
@@ -42,8 +42,6 @@ This is not a good solution though. For every new parameter we add to the endpoi
 
 So what **can** you do?
 
-> Note: from this point on I'm not going to be using typed routes to keep the code minimal, but you can just add it in anywhere.
-
 ## ajv
 
 A library called [ajv](https://ajv.js.org/) offers *schema validation*, which allows you to validate data based on some pre-defined schema. This schema looks like this:
@@ -63,7 +61,7 @@ const schema = {
 Just as an example, if we were to describe this schema using a Typescript interface, we would get this:
 
 ```ts
-interface ReqBody {
+interface UserPostRequest {
     foo: integer,
     foo: string
 }
@@ -97,21 +95,21 @@ app.post("/user", validateBody(userSchema), (req, res) => {
 ```
 
 
-Now, wouldn't it be cool if we could use that typescript interface to... *generate* the schema? So we would be able to convert our **typescript interface** into a **json schema**, which would could then use for validation.
+Now, wouldn't it be cool if we could use that typescript interface to... *generate* the schema? What if we were able to convert our **typescript interface** into a **json schema**, which we would could then use for validation.
 
 ## typescript-json-schema
 
-Now that cool thing we wanted to do? somehow convert the **Typescript interface** into a **json schema**? This [library](https://github.com/YousefED/typescript-json-schema) does exactly that!
+Now that cool thing we wanted to do? This [library](https://github.com/YousefED/typescript-json-schema) does exactly that!
 
-Now it requires a bit of a setup. 
+It requires a bit of a setup. 
 
-- We need to have a `.ts` file which will hold the interfaces we would like to convert into a schema. We'll call it `schema_definition.ts`
-- Some `.js` script that will use this library to convert said file into schema. We'll call it `schemaGenerator.js`
-- And finally, some `.ts` file that will be generated, all it will do is export the json schema so we can import it elsewhere, we'll call it `_schema.ts`.
+- We need to have a `schema_definition.ts` file contains the interfaces we would like to convert into json schemas.
+- Some `schemaGenerator.js` script that will use this library to convert said file into schema.
+- And finally, a `_schema.ts` file that will be generated, all it will do is export the json schema so we can import it elsewhere. Essentialy a `.json` file wrapped in a `.ts` file.
 
-> To follow along easier you can clone the provided [repo](https://github.com/grawtar/express-validation-with-ts), which has this stuff already setup.
+To follow along easier you can clone the provided [repo](https://github.com/grawtar/express-validation-with-ts), which has this stuff already setup.
 
-## schema_definition.ts
+### schema_definition.ts
 
 As mentioned, this will hold the **typescript interfaces** that will be converted into **json schemas**. For the user example let's just write:
 ```ts
@@ -121,7 +119,7 @@ export interface UserPostRequest {
 }
 ```
 
-## schemaGenerator.js
+### schemaGenerator.js
 
 Pretty much the glue that holds this implementation together:
 
