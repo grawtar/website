@@ -131,6 +131,7 @@ const fs = require("fs");
 
 const settings = {
   required: true,
+  ref: false,
 };
 const compilerOptions = {
   strictNullChecks: true,
