@@ -155,7 +155,7 @@ scripts: {
 }
 ```
 
-Running this will create a `_schema.ts` file in the root directory.
+Running this with `npm run schema` will create a `_schema.ts` file in the root directory.
 
 ## Final code
 
