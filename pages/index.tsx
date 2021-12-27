@@ -55,6 +55,19 @@ const Index: NextPage = () => {
         <Title>Projects</Title>
         <div className="divide-y">
           <ProjectFrame>
+            <ProjectTitle href="https://lnkky.com">lnkky</ProjectTitle>
+            <ProjectWrapper>
+              <ProjectContent>
+                <ProjectContentDescription>
+                  More than just a URL shortener. Create personalized links with custom content. Increase conversions
+                  with built-in A/B testing.
+                </ProjectContentDescription>
+                <ProjectContentRole>Founder</ProjectContentRole>
+                <ProjectContentTech>React, NextJS</ProjectContentTech>
+              </ProjectContent>
+            </ProjectWrapper>
+          </ProjectFrame>
+          <ProjectFrame>
             <ProjectTitle href="https://pakkly.com">Pakkly</ProjectTitle>
             <ProjectWrapper>
               <ProjectContent>
