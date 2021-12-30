@@ -65,6 +65,11 @@ const Index: NextPage = () => {
                 <ProjectContentRole>Founder</ProjectContentRole>
                 <ProjectContentTech>React, NextJS</ProjectContentTech>
               </ProjectContent>
+              <ProjectImage href="https://lnkky.com">
+                <div className="bg-blue-100 rounded-md p-2 shadow-md">
+                  <img src="/lnkky-image.png" width="100%" />
+                </div>
+              </ProjectImage>
             </ProjectWrapper>
           </ProjectFrame>
           <ProjectFrame>
@@ -78,8 +83,10 @@ const Index: NextPage = () => {
                 <ProjectContentRole>Founder</ProjectContentRole>
                 <ProjectContentTech>React, NextJS, Express, Rust</ProjectContentTech>
               </ProjectContent>
-              <ProjectImage href="https://pakkly.com" color="brand-pakkly">
-                <img src="/pakkly-image.png" width="80%" />
+              <ProjectImage href="https://pakkly.com">
+                <div className="shadow-md bg-brand-pakkly p-5 rounded-md">
+                  <img src="/pakkly-image.png" width="100%" />
+                </div>
               </ProjectImage>
             </ProjectWrapper>
           </ProjectFrame>
