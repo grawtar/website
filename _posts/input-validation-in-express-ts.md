@@ -76,7 +76,7 @@ function validateBody(schema) {
   const validate = ajv.compile(schema);
   // middleware that returns error if schema is not ok
   return (req, res, next) => {
-    if (!validate(req.body)) return res.status(400)(validate.errors);
+    if (!validate(req.body)) return res.status(400).json(validate.errors);
     return next();
   };
 }
@@ -131,6 +131,7 @@ const fs = require("fs");
 
 const settings = {
   required: true,
+  ref: false,
 };
 const compilerOptions = {
   strictNullChecks: true,
@@ -154,7 +155,7 @@ scripts: {
 }
 ```
 
-Running this will create a `_schema.ts` file in the root directory.
+Running this with `npm run schema` will create a `_schema.ts` file in the root directory.
 
 ## Final code
 
@@ -175,7 +176,7 @@ const ajv = new Ajv();
 // validation middleware
 function validateBody(schema: object) {
   const validate = ajv.compile(schema);
-  return (req: Request, res: Response, next: NextFunction) => {
+  return (req: any, res: any, next: NextFunction) => {
     if (!validate(req.body)) return res.status(400).json(validate.errors);
     return next();
   };
