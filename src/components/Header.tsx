@@ -21,7 +21,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
   const windowSize = useWindowSize();
 
   return windowSize.width && windowSize.width < 700 ? (
-    <div className="flex justify-between items-center p-4 sticky top-0 bg-white shadow-md">
+    <div className="flex justify-between items-center p-4 sticky top-0 bg-white shadow-md" style={{ zIndex: 90 }}>
       <span
         className="p-4"
         style={{
