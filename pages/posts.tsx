@@ -26,8 +26,8 @@ const Posts: NextPage<PageStaticProps> = ({ posts }) => {
           {posts.map((post) => (
             <a href={`/posts/${post.slug}`} key={post.slug}>
               <div className="py-4  hover:bg-gray-100 pl-4 gap-y-2 flex flex-col hover:border-l-4 transition-all">
-                <h3 className="text-xl sm:text-2xl text-gray-700">{post.title}</h3>
-                <h5 className="text-md sm:text-lg text-gray-600">{post.subTitle}</h5>
+                <h2 className="text-xl sm:text-2xl text-gray-700">{post.title}</h2>
+                <h3 className="text-md sm:text-lg text-gray-600">{post.subTitle}</h3>
                 {/* <h5 className="text-sm">
                   by{" "}
                   <a href="/" className="text-primary">
