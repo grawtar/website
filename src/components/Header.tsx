@@ -96,7 +96,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
             <NavItem small href="/#projects">
               Projects
             </NavItem>
-            <NavItem small href="/posts">
+            <NavItem small href="/blog">
               Blog
             </NavItem>
           </div>
@@ -204,7 +204,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
             <NavItem href="/">Home</NavItem>
             {/* <NavItem href="/story">My story</NavItem> */}
             <NavItem href="/#projects">Projects</NavItem>
-            <NavItem href="/posts">Blog</NavItem>
+            <NavItem href="/blog">Blog</NavItem>
           </div>
           <div className="flex space-x-4 items-center">
             <NavItem href="mailto:contact@urosstok.com">
