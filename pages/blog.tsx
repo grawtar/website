@@ -29,7 +29,7 @@ const Posts: NextPage<PageStaticProps> = ({ posts }) => {
     <div>
       <Head>
         <title>Blog - Uroš Štok</title>
-        <meta name="description" content="Uros Stok's Homepage" />
+        <meta name="description" content="Uroš štok's Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />

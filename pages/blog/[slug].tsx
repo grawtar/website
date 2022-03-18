@@ -31,8 +31,8 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
   return (
     <div>
       <Head>
-        <title>Home - Uroš Štok</title>
-        <meta name="description" content="Uros Stok's Homepage" />
+        <title>{post.title} - Uroš Štok</title>
+        <meta name="description" content="Uroš štok's Homepage" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.subTitle} />
         <link rel="icon" href="/favicon.ico" />

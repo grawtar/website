@@ -48,7 +48,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
       </span>
       <Link href={overrideTitleHref ?? "/"}>
         <a className="text-4xl text-primary ml-16">
-          {overrideTitle ?? "Uros Stok"}
+          {overrideTitle ?? "Uroš Štok"}
         </a>
       </Link>
       <div
@@ -196,7 +196,7 @@ const Header: NextPage<Props> = ({ overrideTitle, overrideTitleHref }) => {
       <div className="flex justify-between items-center py-5 mx-2 md:mx-8">
         <Link href={overrideTitleHref ?? "/"}>
           <a className="text-4xl text-primary">
-            {overrideTitle ?? "Uros Stok"}
+            {overrideTitle ?? "Uroš Štok"}
           </a>
         </Link>
         <div className="flex space-x-14">

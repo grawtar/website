@@ -20,27 +20,27 @@ const Index: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Home - Uroš Štok</title>
-        <meta name="description" content="Uros Stok's Homepage" />
+        <title>Uroš Štok - Full stack developer</title>
+        <meta name="description" content="Uroš štok's Homepage" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <PageContent>
-        <h2 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">
+        <h4 className="text-7xl md:text-8xl text-center mb-24 mt-12 font-bold">
           Hey!
-        </h2>
-        <h3 className="text-xl md:text-2xl text-center mt-0 mb-12 font-light">
+        </h4>
+        <h1 className="text-xl md:text-2xl text-center mt-0 mb-12 font-light">
           <span className="whitespace-nowrap">Full-Stack Developer</span> |{" "}
           <span className="whitespace-nowrap">SaaS</span> |{" "}
           <span className="whitespace-nowrap">NodeJS Developer</span>
-        </h3>
-        <p className="my-8">
+        </h1>
+        <h2 className="my-8">
           I'm Uroš. A full-stack NodeJS developer. I keep a{" "}
           <Link href="/blog">
             <a className="text-primary">blog</a>
           </Link>{" "}
           where I post NodeJS related content.
-        </p>
+        </h2>
         <p className="my-8">
           Most of my expertise lies in building full SaaS applications with
           payment processing and the like. The number one thing that contributed
@@ -64,16 +64,15 @@ const Index: NextPage = () => {
             <ProjectWrapper>
               <ProjectContent>
                 <ProjectContentDescription>
-                  More than just a URL shortener. Create personalized links with
-                  custom content. Increase conversions with built-in A/B
-                  testing.
+                  Solution for creating unique links that lead to completely
+                  customzied pages. Allows you to create customized thank you
+                  pages, surveys, messages, etc.
                 </ProjectContentDescription>
-                <ProjectContentRole>Founder</ProjectContentRole>
                 <ProjectContentTech>React, NextJS</ProjectContentTech>
               </ProjectContent>
               <ProjectImage href="https://lnkky.com">
                 <div className="bg-blue-100 rounded-md p-2 shadow-md">
-                  <img src="/lnkky-image.png" width="100%" />
+                  <img src="/lnkky-image.png" width="100%" alt="lnkky" />
                 </div>
               </ProjectImage>
             </ProjectWrapper>
@@ -87,14 +86,13 @@ const Index: NextPage = () => {
                   Ensures your clients are on the latest version, cross-platform
                   support included.
                 </ProjectContentDescription>
-                <ProjectContentRole>Founder</ProjectContentRole>
                 <ProjectContentTech>
                   React, NextJS, Express, Rust
                 </ProjectContentTech>
               </ProjectContent>
               <ProjectImage href="https://pakkly.com">
                 <div className="shadow-md bg-brand-pakkly p-5 rounded-md">
-                  <img src="/pakkly-image.png" width="100%" />
+                  <img src="/pakkly-image.png" width="100%" alt="pakkly" />
                 </div>
               </ProjectImage>
             </ProjectWrapper>
@@ -110,12 +108,8 @@ const Index: NextPage = () => {
                   Github that uses Vercel for hosting. It also includes a static
                   blog built from markdown files.
                 </ProjectContentDescription>
-                <ProjectContentRole></ProjectContentRole>
                 <ProjectContentTech>React, NextJS</ProjectContentTech>
               </ProjectContent>
-              {/* <ProjectImage href="https://github.com/grawtar/website" color="brand-pakkly">
-                <img src="/pakkly-image.png" width="80%" />
-              </ProjectImage> */}
             </ProjectWrapper>
           </ProjectFrame>
         </div>
