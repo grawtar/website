@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://featuretrail.com
+Host: https://urosstok.com
 
 # Sitemaps
-Sitemap: https://featuretrail.com/sitemap.xml
+Sitemap: https://urosstok.com/sitemap.xml
