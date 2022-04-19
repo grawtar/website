@@ -6,6 +6,7 @@ export interface Post {
   author: string;
   slug: string;
   content: string;
+  keywords: string;
   date: string;
   title: string;
   subTitle: string;
@@ -40,6 +41,8 @@ export function getPostBySlug(slug: string): Post {
 
 export function getAllPosts() {
   const slugs = getPostSlugs();
-  const posts = slugs.map((slug) => getPostBySlug(slug)).sort((a, b) => (a.date > b.date ? -1 : 1));
+  const posts = slugs
+    .map((slug) => getPostBySlug(slug))
+    .sort((a, b) => (a.date > b.date ? -1 : 1));
   return posts;
 }

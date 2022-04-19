@@ -1,6 +1,7 @@
 ---
 title: "Input validation in Express from TypeScript"
 subTitle: "Don't duplicate definitions by hand, you have Typescript"
+keywords: express, javascript, node, expressjs
 author: "Uroš Štok"
 date: "2021-12-22"
 ---
@@ -12,15 +13,17 @@ Most issues with Express crop up with badly (not) checked inputs to endpoints. T
 ```ts
 type RequestBody<T> = Request<{}, {}, T>;
 
-interface UserBody {name: string};
+interface UserBody {
+  name: string;
+}
 app.post("/user", (req: RequestBody<UserBody>, res) => {
-    return addUser(req.body.name);
-})
+  return addUser(req.body.name);
+});
 ```
 
 Here we're using typescript with express for [typed routes](https://urosstok.com/posts/typed-routes-in-express) which give us autocomplete.
 
-Despite this being *typesafe*, it can still crash our whole backend!
+Despite this being _typesafe_, it can still crash our whole backend!
 
 Nothing is preventing someone from posting an empty body, which express will happily accept, which will cause an exception in the `addUser` function, which will crash the whole server as the error is not caught.
 
@@ -31,11 +34,13 @@ We could simply add some code checks (or catch some exceptions), for example:
 ```ts
 type RequestBody<T> = Request<{}, {}, T>;
 
-interface UserBody {name: string};
+interface UserBody {
+  name: string;
+}
 app.post("/user", (req: RequestBody<UserBody>, res) => {
-    if (!req.body.name) return res.sendStatus(400); // we added this
-    return addUser(req.body.name);
-})
+  if (!req.body.name) return res.sendStatus(400); // we added this
+  return addUser(req.body.name);
+});
 ```
 
 This is not a good solution though. For every new parameter we add to the endpoint (request body), we will have to make sure the code won't crash later. When you have a large API, it's really easy to miss some edge-case that brings the whole server down.
@@ -44,30 +49,30 @@ So what **can** you do?
 
 ## ajv
 
-A library called [ajv](https://ajv.js.org/) offers *schema validation*, which allows you to validate data based on some pre-defined schema. This schema looks like this:
+A library called [ajv](https://ajv.js.org/) offers _schema validation_, which allows you to validate data based on some pre-defined schema. This schema looks like this:
 
 ```ts
 const schema = {
   type: "object",
   properties: {
-    foo: {type: "integer"},
-    bar: {type: "string", nullable: true}
+    foo: { type: "integer" },
+    bar: { type: "string", nullable: true },
   },
   required: ["foo"],
-  additionalProperties: false
-}
+  additionalProperties: false,
+};
 ```
 
 Just as an example, if we were to describe this schema using a Typescript interface, we would get this:
 
 ```ts
 interface UserPostRequest {
-    foo: integer,
-    foo: string
+  foo: integer;
+  foo: string;
 }
 ```
 
-But more on that later. First let's see how we could use *ajs* to create a middleware that would only allow the request if the `req.body` matched the schema:
+But more on that later. First let's see how we could use _ajs_ to create a middleware that would only allow the request if the `req.body` matched the schema:
 
 ```ts
 // function that creates middleware by compiling the supplied schema
@@ -84,24 +89,23 @@ function validateBody(schema) {
 const schema = {
   type: "object",
   properties: {
-    name: {type: "string"},
+    name: { type: "string" },
   },
   required: ["name"],
-}
+};
 
 app.post("/user", validateBody(userSchema), (req, res) => {
-    return addUser(req.body.name); // name will never be undefined
-})
+  return addUser(req.body.name); // name will never be undefined
+});
 ```
 
-
-Now, wouldn't it be cool if we could use that typescript interface to... *generate* the schema? What if we were able to convert our **typescript interface** into a **json schema**, which we would could then use for validation.
+Now, wouldn't it be cool if we could use that typescript interface to... _generate_ the schema? What if we were able to convert our **typescript interface** into a **json schema**, which we would could then use for validation.
 
 ## typescript-json-schema
 
 Now that cool thing we wanted to do? This [library](https://github.com/YousefED/typescript-json-schema) does exactly that!
 
-It requires a bit of a setup. 
+It requires a bit of a setup.
 
 - We need to have a `schema_definition.ts` file contains the interfaces we would like to convert into json schemas.
 - Some `schemaGenerator.js` script that will use this library to convert said file into schema.
@@ -112,6 +116,7 @@ To follow along easier you can clone the provided [repo](https://github.com/graw
 ### schema_definition.ts
 
 As mentioned, this will hold the **typescript interfaces** that will be converted into **json schemas**. For the user example let's just write:
+
 ```ts
 // schema_definition.ts
 export interface UserPostRequest {
@@ -137,12 +142,18 @@ const compilerOptions = {
   strictNullChecks: true,
 };
 
-const program = tjs.getProgramFromFiles([path.resolve("schema_definition.ts")], compilerOptions, "./");
+const program = tjs.getProgramFromFiles(
+  [path.resolve("schema_definition.ts")],
+  compilerOptions,
+  "./"
+);
 
 const schema = tjs.generateSchema(program, "*", settings);
 fs.writeFileSync(
   "_schema.ts",
-  "const schema = " + JSON.stringify(schema) + " as const;\nexport default schema.definitions;"
+  "const schema = " +
+    JSON.stringify(schema) +
+    " as const;\nexport default schema.definitions;"
 );
 ```
 
@@ -187,9 +198,13 @@ type RequestBody<T> = Request<{}, {}, T>;
 
 function addUser(name: string) {}
 
-app.post("/user", validateBody(_schema.UserPostRequest), (req: RequestBody<UserPostRequest>, res: Response) => {
-  return addUser(req.body.name); // name will never be undefined
-});
+app.post(
+  "/user",
+  validateBody(_schema.UserPostRequest),
+  (req: RequestBody<UserPostRequest>, res: Response) => {
+    return addUser(req.body.name); // name will never be undefined
+  }
+);
 
 app.listen(3000);
 ```

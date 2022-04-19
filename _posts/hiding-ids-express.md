@@ -1,6 +1,7 @@
 ---
 title: "Hiding ids with express"
 subTitle: "Add middleware that encodes/decodes every request to hide your ids"
+keywords: express, javascript, node, expressjs
 author: "Uroš Štok"
 date: "2022-03-08"
 ---

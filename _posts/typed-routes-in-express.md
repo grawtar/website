@@ -1,6 +1,7 @@
 ---
 title: "Typed routes in Express"
 subTitle: "Add some typesafety into your Express routes"
+keywords: express, javascript, node, expressjs
 date: "2021-12-18"
 author: "Uroš Štok"
 ---
@@ -9,15 +10,15 @@ While Express wasn't built with Typescript, there are type definitions available
 
 I've looked around for ways of properly doing `Request` and `Response` types, and haven't found anything that works without breaking something else or being complicated. So here's how I usually implement typesafety into express routes.
 
-
 Let's say we had an endpoint for adding a new user:
+
 ```ts
 import express from "express";
 
 const app = express();
 
 app.post("/user", (req, res) => {
-    req.body.name; // autocomplete doesn't work
+  req.body.name; // autocomplete doesn't work
 });
 
 app.listen(3000);
@@ -44,9 +45,10 @@ We can pass an interface to the `Request` type parameter list so that Typescript
 ```ts
 type UserRequestBody = { name: string };
 app.post("/user", (req: Request<{}, {}, UserRequestBody>, res: Response) => {
-    req.body.name; // autocomplete works
+  req.body.name; // autocomplete works
 });
 ```
+
 We need to put `{}` for the first two parameters as the thing we want (body) is actually the **third** type parameter. As we can see in the `Request` definition:
 
 ```ts
@@ -70,7 +72,7 @@ type RequestBody<T> = Request<{}, {}, T>;
 
 type UserRequestBody = { name: string };
 app.post("/user", (req: RequestBody<UserRequestBody>, res: Response) => {
-    req.body.name; // autocomplete works
+  req.body.name; // autocomplete works
 });
 ```
 
@@ -93,7 +95,7 @@ type RequestQuery<T> = Request<{}, {}, {}, T>;
 To cover everything, we need to be able to specify multiple types, for example `.body` and `.params`. We can do so by simply adding a new type:
 
 ```ts
-type RequestBodyParams<TBody, TParams> = Request<TParams, {}, TBody>
+type RequestBodyParams<TBody, TParams> = Request<TParams, {}, TBody>;
 ```
 
 ## Typed example
@@ -101,14 +103,14 @@ type RequestBodyParams<TBody, TParams> = Request<TParams, {}, TBody>
 Here's the full example from the start, now with typed routes:
 
 ```ts
-import express, {Request, Resposne} from "express";
+import express, { Request, Resposne } from "express";
 
 const app = express();
 
 type RequestBody<T> = Request<{}, {}, T>;
 type UserRequestBody = { name: string };
 app.post("/user", (req: RequestBody<UserRequestBody>, res: Response) => {
-    req.body.name; // autocomplete works
+  req.body.name; // autocomplete works
 });
 
 app.listen(3000);
