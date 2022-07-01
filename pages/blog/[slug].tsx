@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-import { getPostBySlug, getAllPosts, Post } from "../../src/lib/postApi";
-import Head from "next/head";
-import { markdownToHtml, markdownReadTime } from "../../src/lib/markdownToHtml";
-import Header from "../../src/components/Header";
 import { GetStaticProps, NextPage } from "next";
+import ErrorPage from "next/error";
+import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import Container from "../../src/components/Container";
+import { markdownReadTime, markdownToHtml } from "../../src/lib/markdownToHtml";
+import { getAllPosts, getPostBySlug, IPost } from "../../src/lib/postApi";
 
 const months = [
   "JAN",
@@ -22,16 +22,16 @@ const months = [
   "DEC",
 ];
 
-type PageStaticProps = { post: Post };
+type PageStaticProps = { post: IPost };
 const Post: NextPage<PageStaticProps> = ({ post }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <div>
+    <Container>
       <Head>
-        <title>{post.title} - Uroš Štok</title>
+        <title>{`${post.title} - Uroš Štok`}</title>
         <meta
           name="description"
           content={`${post.content.substring(0, 100)}...`}
@@ -41,16 +41,15 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
         <meta name="twitter:description" content={post.subTitle} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header overrideTitle="Blog" overrideTitleHref="/blog" />
-      <article className="prose lg:prose-lg mx-auto px-3 sm:px-0 pb-4">
+      <article className="prose lg:prose-lg mx-auto px-3 sm:px-0 pb-4 max-w-4xl">
         <span className="not-prose">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
             {post.title}
           </h1>
           <h3 className="my-4 text-sm">
             by{" "}
-            <Link href="/">
-              <span className="text-primary">{post.author}</span>
+            <Link passHref href="/">
+              <span className="text-primary cursor-pointer">{post.author}</span>
             </Link>{" "}
             {months[new Date(post.date).getMonth()]}{" "}
             {new Date(post.date).getDate()}, {new Date(post.date).getFullYear()}
@@ -59,7 +58,7 @@ const Post: NextPage<PageStaticProps> = ({ post }) => {
         </span>
         <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
       </article>
-    </div>
+    </Container>
   );
 };
 export default Post;

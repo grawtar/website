@@ -2,7 +2,7 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 
-export interface Post {
+export interface IPost {
   author: string;
   slug: string;
   content: string;
@@ -23,7 +23,7 @@ export function getPostSlugs(): string[] {
   }
 }
 
-export function getPostBySlug(slug: string): Post {
+export function getPostBySlug(slug: string): IPost {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -36,10 +36,10 @@ export function getPostBySlug(slug: string): Post {
     slug: realSlug,
     content,
     ...data,
-  } as Post;
+  } as IPost;
 }
 
-export function getAllPosts() {
+export function getAllPosts(): IPost[] {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))

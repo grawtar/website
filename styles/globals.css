@@ -7,4 +7,27 @@
   .min-h-256 {
     min-height: 256px;
   }
+  .highlight-nodejs:after {
+    background: #22c55e;
+  }
+  .highlight-react:after {
+    background: #0ea5e9;
+  }
+  .highlight-docker:after {
+    background: #3b82f6;
+  }
+  .highlight {
+    display: inline-block;
+    position: relative;
+  }
+  .highlight:after {
+    bottom: 0.2rem;
+    content: "";
+    display: block;
+    height: 8px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
 }
