@@ -5,34 +5,17 @@ const ProjectList = () => {
     <div className="lg:w-4/5 mx-auto space-y-6">
       <ProjectItem>
         <ProjectItem.Content>
-          <ProjectItem.Title href="https://lnkky.com">lnkky</ProjectItem.Title>
-          <p>
-            Solution for creating unique links that lead to completely
-            customzied pages. Allows you to create customized thank you pages,
-            surveys, messages, etc.
-          </p>
-          <p className="mt-4 text-gray-700 font-semibold">
-            Fastify, React, NextJS
-          </p>
-        </ProjectItem.Content>
-        <ProjectItem.Visual>
-          <img src="/lnkky-image.png" alt="lnkky" />
-        </ProjectItem.Visual>
-      </ProjectItem>
-      <ProjectItem>
-        <ProjectItem.Content>
-          <ProjectItem.Title href="https://featuretrail.com">
-            FeatureTrail
+          <ProjectItem.Title href="https://mailisk.com">
+            Mailisk
           </ProjectItem.Title>
           <p>
-            An embeddable widget that helps you make awesome public roadmaps.
-          </p>
-          <p className="mt-4 text-gray-700 font-semibold">
-            React, NextJS, Express, Rust
+            Mailisk is an end-to-end email testing platform. It allows you to
+            receive emails with code and automate email flows. You get a unique
+            subdomain and access to unlimited custom email addresses.
           </p>
         </ProjectItem.Content>
         <ProjectItem.Visual>
-          <img src="/featuretrail-image.png" alt="FeatureTrail" />
+          <img src="/mailisk-image.png" alt="lnkky" />
         </ProjectItem.Visual>
       </ProjectItem>
       <ProjectItem>
@@ -51,6 +34,32 @@ const ProjectList = () => {
         </ProjectItem.Content>
         <ProjectItem.Visual>
           <img src="/pakkly-image.png" alt="Pakkly" />
+        </ProjectItem.Visual>
+      </ProjectItem>
+      <ProjectItem>
+        <ProjectItem.Content>
+          <ProjectItem.Title href="https://lnkky.com">lnkky</ProjectItem.Title>
+          <p>
+            Solution for creating unique links that lead to completely
+            customzied pages. Allows you to create customized thank you pages,
+            surveys, messages, etc.
+          </p>
+        </ProjectItem.Content>
+        <ProjectItem.Visual>
+          <img src="/lnkky-image.png" alt="lnkky" />
+        </ProjectItem.Visual>
+      </ProjectItem>
+      <ProjectItem>
+        <ProjectItem.Content>
+          <ProjectItem.Title href="https://featuretrail.com">
+            FeatureTrail
+          </ProjectItem.Title>
+          <p>
+            An embeddable widget that helps you make awesome public roadmaps.
+          </p>
+        </ProjectItem.Content>
+        <ProjectItem.Visual>
+          <img src="/featuretrail-image.png" alt="FeatureTrail" />
         </ProjectItem.Visual>
       </ProjectItem>
     </div>
